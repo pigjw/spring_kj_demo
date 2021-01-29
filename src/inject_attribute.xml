@@ -30,5 +30,5 @@
         </property>
     </bean>
 
-    <!-- 测试下远端分支 -->
+    <!-- 测试下远端分支  测试下origin/master-->
 </beans>
