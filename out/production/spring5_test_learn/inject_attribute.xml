@@ -38,7 +38,9 @@
         <property name="userDao" ref="userDaoImpl"> </property>
     </bean>
     <!--创建一个实现类-->
-    <bean id="userDaoImpl" class="com.lsm.inject_attribute_external_bean.UserDaoImpl"></bean>
+    <bean id="userDaoImpl" class="com.lsm.inject_attribute_external_bean.UserDaoImpl">
+        <constructor-arg name="name" value="李思明"></constructor-arg>
+    </bean>
 
 
 

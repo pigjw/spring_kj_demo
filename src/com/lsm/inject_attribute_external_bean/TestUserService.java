@@ -10,7 +10,6 @@ public class TestUserService {
     @Test
     public void testUserService(){
         ApplicationContext context = new ClassPathXmlApplicationContext("inject_attribute.xml");
-//        ApplicationContext context = new FileSystemXmlApplicationContext("inject_attribute.xml");
         UserService userService = context.getBean("userService", UserService.class);
         userService.add();
     }
