@@ -1,4 +1,4 @@
-package com.lsm.inject_attribute_structor;
+package com.lsm.inject_attribute.inject_attribute_structor;
 
 public class PersonTest {
     private String name;

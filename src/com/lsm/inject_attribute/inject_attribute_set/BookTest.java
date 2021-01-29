@@ -1,4 +1,4 @@
-package com.lsm.inject_attribute_set;
+package com.lsm.inject_attribute.inject_attribute_set;
 
 /**
  * 演示spring注入属性

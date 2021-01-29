@@ -5,23 +5,23 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd">
     <!--创建对象 并通过set进行 依赖注入相关属性-->
-    <bean id="bookTest" class="com.lsm.inject_attribute_set.BookTest">
+    <bean id="bookTest" class="com.lsm.inject_attribute.inject_attribute_set.BookTest">
         <!-- 使用property标签注入属性   name是对应的属性名称   value是你配置的想要注入的值-->
         <property name="bookAuthor" value="siming.li"></property>
         <property name="bookName" value="spring注入属性"></property>
     </bean>
 
     <!--创建对象 并通过constructor 依赖注入相关属性-->
-    <bean id="personTest" class="com.lsm.inject_attribute_structor.PersonTest">
+    <bean id="personTest" class="com.lsm.inject_attribute.inject_attribute_structor.PersonTest">
         <!--使用constructor 注入参数-->
         <constructor-arg name="name" value="lisiming"></constructor-arg>
         <constructor-arg name="age" value="24"></constructor-arg>
     </bean>
     <!--这个也是依赖注入属性 p空间的依赖注入  但是这个并不是很常用  而且要这个也要依赖set-->
-    <bean id="computerTest" class="com.lsm.inject_attribute_p_namespace.ComputerTest" p:name="lisiming" p:price="15000"></bean>
+    <bean id="computerTest" class="com.lsm.inject_attribute.inject_attribute_p_namespace.ComputerTest" p:name="lisiming" p:price="15000"></bean>
 
     <!-- 测试依赖注入null属性 以及特殊字符-->
-    <bean id="teaTest" class="com.lsm.inject_attribute_null.TeaTest">
+    <bean id="teaTest" class="com.lsm.inject_attribute.inject_attribute_null.TeaTest">
         <property name="name">
             <null></null>
         </property>
@@ -33,19 +33,19 @@
 
 
     <!-- 注入属性-外部bean -->
-    <bean id="userService" class="com.lsm.inject_attribute_external_bean.UserService">
+    <bean id="userService" class="com.lsm.inject_attribute.inject_attribute_external_bean.UserService">
         <!-- 如何在一个类中有这个属性的话 那我们在属性这直接引用这个对象就好了  但是前提是在ioc中有创健这个对象-->
         <property name="userDao" ref="userDaoImpl"> </property>
     </bean>
     <!--创建一个实现类-->
-    <bean id="userDaoImpl" class="com.lsm.inject_attribute_external_bean.UserDaoImpl">
+    <bean id="userDaoImpl" class="com.lsm.inject_attribute.inject_attribute_external_bean.UserDaoImpl">
         <constructor-arg name="name" value="李思明"></constructor-arg>
     </bean>
 
     <!-- 注入属性-内部bean -->
-    <bean id="empTest" class="com.lsm.inject_attribute_inside_bean.EmpTest">
+    <bean id="empTest" class="com.lsm.inject_attribute.inject_attribute_inside_bean.EmpTest">
         <property name="deptTest">
-            <bean id="deptTest" class="com.lsm.inject_attribute_inside_bean.DeptTest">
+            <bean id="deptTest" class="com.lsm.inject_attribute.inject_attribute_inside_bean.DeptTest">
                 <property name="dpName" value="安保部"></property>
             </bean>
         </property>

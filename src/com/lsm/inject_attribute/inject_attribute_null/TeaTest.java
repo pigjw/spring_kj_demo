@@ -1,4 +1,4 @@
-package com.lsm.inject_attribute_null;
+package com.lsm.inject_attribute.inject_attribute_null;
 
 public class TeaTest {
     private String name;

@@ -1,4 +1,4 @@
-package com.lsm.inject_attribute_set;
+package com.lsm.inject_attribute.inject_attribute_set;
 
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;

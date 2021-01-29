@@ -1,4 +1,4 @@
-package com.lsm.inject_attribute_p_namespace;
+package com.lsm.inject_attribute.inject_attribute_p_namespace;
 
 import java.math.BigDecimal;
 

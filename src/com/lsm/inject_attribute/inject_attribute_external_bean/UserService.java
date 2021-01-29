@@ -1,4 +1,4 @@
-package com.lsm.inject_attribute_external_bean;
+package com.lsm.inject_attribute.inject_attribute_external_bean;
 
 public class UserService {
     private UserDao userDao;

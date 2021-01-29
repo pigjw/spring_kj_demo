@@ -1,4 +1,4 @@
-package com.lsm.inject_attribute_structor;
+package com.lsm.inject_attribute.inject_attribute_structor;
 
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;

@@ -1,4 +1,4 @@
-package com.lsm.inject_attribute_p_namespace;
+package com.lsm.inject_attribute.inject_attribute_p_namespace;
 
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
