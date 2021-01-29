@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!--创建对象 并通过set进行 依赖注入相关属性-->
+    <bean id="bookTest" class="com.lsm.inject_attribute_set.BookTest">
+        <!-- 使用property标签注入属性   name是对应的属性名称   value是你配置的想要注入的值-->
+        <property name="bookAuthor" value="siming.li"></property>
+        <property name="bookName" value="spring注入属性"></property>
+    </bean>
+
+    <!--创建对象 并通过constructor 依赖注入相关属性-->
+    <bean id="personTest" class="com.lsm.inject_attribute_structor.PersonTest">
+        <!--使用constructor 注入参数-->
+        <constructor-arg name="name" value="lisiming"></constructor-arg>
+        <constructor-arg name="age" value="24"></constructor-arg>
+    </bean>
+
+    <bean id="computerTest" class="com.lsm.inject_attribute_p_namespace.ComputerTest" p:name="lisiming" p:price="15000"></bean>
+</beans>
