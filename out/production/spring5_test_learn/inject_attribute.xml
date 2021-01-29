@@ -43,5 +43,15 @@
     </bean>
 
 
+    <bean id="empTest" class="com.lsm.inject_attribute_inside_bean.EmpTest">
+        <property name="deptTest">
+            <bean id="deptTest" class="com.lsm.inject_attribute_inside_bean.DeptTest">
+                <property name="dpName" value="安保部"></property>
+            </bean>
+        </property>
+        <property name="empGender" value="女" ></property>
+        <property name="empName" value="陈瑞芳"></property>
+    </bean>
+
 
 </beans>

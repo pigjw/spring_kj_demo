@@ -32,7 +32,7 @@
 
 
 
-    <!-- 注入外部bean -->
+    <!-- 注入属性-外部bean -->
     <bean id="userService" class="com.lsm.inject_attribute_external_bean.UserService">
         <!-- 如何在一个类中有这个属性的话 那我们在属性这直接引用这个对象就好了  但是前提是在ioc中有创健这个对象-->
         <property name="userDao" ref="userDaoImpl"> </property>
@@ -42,6 +42,16 @@
         <constructor-arg name="name" value="李思明"></constructor-arg>
     </bean>
 
+    <!-- 注入属性-内部bean -->
+    <bean id="empTest" class="com.lsm.inject_attribute_inside_bean.EmpTest">
+        <property name="deptTest">
+            <bean id="deptTest" class="com.lsm.inject_attribute_inside_bean.DeptTest">
+                <property name="dpName" value="安保部"></property>
+            </bean>
+        </property>
+        <property name="empGender" value="女" ></property>
+        <property name="empName" value="陈瑞芳"></property>
+    </bean>
 
 
 </beans>
