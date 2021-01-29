@@ -17,6 +17,16 @@
         <constructor-arg name="name" value="lisiming"></constructor-arg>
         <constructor-arg name="age" value="24"></constructor-arg>
     </bean>
-
+    <!--这个也是依赖注入属性 p空间的依赖注入  但是这个并不是很常用  而且要这个也要依赖set-->
     <bean id="computerTest" class="com.lsm.inject_attribute_p_namespace.ComputerTest" p:name="lisiming" p:price="15000"></bean>
+
+    <!-- 测试依赖注入null属性-->
+    <bean id="teaTest" class="com.lsm.inject_attribute_null.TeaTest">
+        <property name="name">
+            <null></null>
+        </property>
+        <property name="age">
+            <null></null>
+        </property>
+    </bean>
 </beans>
