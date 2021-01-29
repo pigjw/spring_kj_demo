@@ -53,5 +53,13 @@
         <property name="empName" value="陈瑞芳"></property>
     </bean>
 
+    <!-- 注入属性-级联注入属性 -->
+    <bean id="personPenTest" class="com.lsm.inject_attribute.inject_attribute_cascade_bean.PersonPenTest">
+        <property name="penTest" ref="penTest"></property>
+        <property name="penTest.name" value="圆珠笔"></property>
+        <property name="penTest.price" value="10000"></property>
+    </bean>
+    <bean id="penTest" class="com.lsm.inject_attribute.inject_attribute_cascade_bean.PenTest"></bean>
+
 
 </beans>
