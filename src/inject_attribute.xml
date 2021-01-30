@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:p="http://www.springframework.org/schema/p" xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:util="http://www.springframework.org/schema/util"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
-       http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util https://www.springframework.org/schema/util/spring-util.xsd">
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/util
+       https://www.springframework.org/schema/util/spring-util.xsd">
     <!--创建对象 并通过set进行 依赖注入相关属性-->
     <bean id="bookTest" class="com.lsm.inject_attribute.inject_attribute_set.BookTest">
         <!-- 使用property标签注入属性   name是对应的属性名称   value是你配置的想要注入的值-->
@@ -79,13 +82,15 @@
                 <value>C语言程序设计</value>
             </array>
         </property>
-        <property name="list">
-            <list>
-                <value>list1</value>
-                <value>list2</value>
-                <value>list3</value>
-            </list>
-        </property>
+        <!--测试集合属性注入 -->
+<!--        <property name="list">-->
+<!--            <list>-->
+<!--                <value>list1</value>-->
+<!--                <value>list2</value>-->
+<!--                <value>list3</value>-->
+<!--            </list>-->
+<!--        </property>-->
+        <property name="list" ref="listTest"></property>
         <property name="maps">
             <map>
                 <entry key="JAVA" value="java"></entry>
@@ -105,6 +110,17 @@
             </list>
         </property>
     </bean>
+
+    <!-- 集合类型属性提取 用到上边的list中去 -->
+    <util:list id="listTest">
+        <value>鲁滨孙漂流记</value>
+        <value>仙逆</value>
+        <value>求魔</value>
+    </util:list>
+
+    <!-- 实现FactoryBean<?>借口设置返回值类型 -->
+    <bean id="fbBean" class="com.lsm.inject_attribute.factorybean.FbBean"></bean>
+
 
 
 </beans>
