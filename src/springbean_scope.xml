@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!--scope代表作用域指的是bean是实例还是多实例的 singleton代笔是单例的，并且在加载配置文件的时候就会创建对象
+    prototype代表非单例的 在getBean的时候才会创建对象 -->
+    <bean id="userTest" class="com.lsm.springbean_scope.UserTest" scope="prototype"></bean>
+</beans>
