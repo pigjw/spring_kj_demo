@@ -6,4 +6,5 @@
     <bean id="orders" class="com.lsm.springbean_lifecycle.Orders" init-method="initMethod" destroy-method="destroyMethod">
         <property name="orderName" value="macpro订单"></property>
     </bean>
+    <bean class="com.lsm.springbean_lifecycle.MyBeanPreAfter" id="myBeanPreAfter"></bean>
 </beans>
