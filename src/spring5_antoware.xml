@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/context
+                           http://www.springframework.org/schema/context/spring-context.xsd">
+    <!--  xml方式自动装配
+            autowire="byname"特点是 你这个beanid的名称必须和你这个属性的名称是一致的 他才可以根据名称进行找到
+            autowire="bytype" 特点是根据类型进行注入  但是你xml里要配置了两个bean的话 那你就要进行byname进行装配 -->
+    <bean id="dept" class="com.lsm.spring5_antoware.antoware_xml.Dept"></bean>
+    <bean id="emp" class="com.lsm.spring5_antoware.antoware_xml.Emp" autowire="byType"></bean>
+
+    <!--如果不使用外部引入文件 我们是这样做数据库连接池的-->
+    <bean id="druidDataSource" class="com.alibaba.druid.pool.DruidDataSource">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
+        <property name="url" value="jdbc:mysql://localhost:3306/userDb"></property>
+        <property name="username" value="root"></property>
+        <property name="password" value="root"></property>
+    </bean>
+
+    <!--1.引入外部属性文件 -->
+    <context:property-placeholder location="jdbc.properties"></context:property-placeholder>
+    <!--配置数据库连接池-->
+    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
+        <property name="driverClassName" value="${prop.driverClass}"></property>
+        <property name="url" value="${prop.url}"></property>
+        <property name="username" value="${prop.userName}"></property>
+        <property name="password" value="${prop.password}"></property>
+    </bean>
+
+
+</beans>
