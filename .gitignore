@@ -3,6 +3,7 @@
 /.idea/vcs.xml/
 .idea/
 out/
+spring5_test_learn.iml
 /workspace.xml
 # Datasource local storage ignored files
 /dataSources/
