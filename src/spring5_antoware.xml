@@ -30,5 +30,23 @@
         <property name="password" value="${prop.password}"></property>
     </bean>
 
+    <!-- 开启组件扫描，如果有多个包 用逗号隔开-->
+    <context:component-scan base-package="com.lsm.spring5_antoware.antowire_anotation"></context:component-scan>
+<!--    &lt;!&ndash;开启组件扫描 如果不是多个包 &ndash;&gt;-->
+<!--    <context:component-scan base-package="com.lsm.spring5_antoware.antowire_anotation"></context:component-scan>-->
+<!--    &lt;!&ndash;在spring里边会有一个默认的filter 通过这个filter去找到你包中对应的所有类 &ndash;&gt;-->
+<!--    <context:component-scan base-package="com"></context:component-scan>-->
+    <!--示例一：如果加了use-default-filters="false" 就不会使用默认的filter 会让自己配置规则
+    context:include-filter设置包含那些内容  如果加了type="annotation" expression="org.springframework.stereotype.Controller"
+    只扫描com包中带controller的注解-->
+<!--    <context:component-scan base-package="com" use-default-filters="false">-->
+<!--        <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>-->
+<!--    </context:component-scan>-->
+
+<!--    &lt;!&ndash;示例2: 和上边的一样 最主要的就是不包含那些内容 不去扫描那些东西&ndash;&gt;-->
+<!--    <context:component-scan base-package="com" use-default-filters="false">-->
+<!--        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>-->
+<!--    </context:component-scan>-->
+
 
 </beans>
