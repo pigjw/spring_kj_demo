@@ -6,6 +6,7 @@ import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class TestJdbc {
@@ -24,7 +25,23 @@ public class TestJdbc {
 //        Book bookBack = bookService.selectBaObject("1");
 //        List<Book> books = bookService.selectBaList();
 //        System.out.println(books);
-//        List<Object[]> list = new L
+//        Object[] o1 = {"1","c#","1"};
+//        Object[] o2 = {"2","c#","2"};
+//        Object[] o3 = {"3","c#","3"};
+//        List<Object[]> list = new ArrayList<>();
+//        list.add(o1);
+//        list.add(o2);
+//        list.add(o3);
+//        bookService.batchInsertList(list);
+//        bookService.batchUpdateList(list);
+        Object[] o1 = {"1"};
+        Object[] o2 = {"2"};
+        Object[] o3 = {"3"};
+        List<Object[]> list = new ArrayList<>();
+        list.add(o1);
+        list.add(o2);
+        list.add(o3);
+        bookService.batchDeleteList(list);
     }
 
 

@@ -42,5 +42,13 @@ public class BookService  {
         bookDao.batchInsertList(objects);
     }
 
+    public void  batchUpdateList(List<Object[]> objects){
+
+        bookDao.batchUpdateList(objects);
+    }
+    public void  batchDeleteList(List<Object[]> objects){
+
+        bookDao.batchDeleteList(objects);
+    }
 
 }

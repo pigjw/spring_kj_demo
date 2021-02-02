@@ -18,4 +18,8 @@ public interface BookDao {
     List<Book> selectBaList();
 
     void batchInsertList(List<Object[]> objects);
+
+    void batchUpdateList(List<Object[]> objects);
+
+    void batchDeleteList(List<Object[]> objects);
 }
