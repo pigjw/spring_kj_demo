@@ -74,4 +74,17 @@ public class BookDaoImpl implements BookDao{
         List<Book> bookList = jdbcTemplate.query(sql, new BeanPropertyRowMapper<Book>(Book.class));
         return bookList;
     }
+
+    @Override
+    public void batchInsertList(List<Object[]> objects) {
+        //1.创建sql语句
+        String sql = "insert into t_book values(?,?,?)";
+        //2.调用方法实现
+        int[] intArray = jdbcTemplate.batchUpdate(sql, objects);
+//        Object[] args = {book.getUserId(), book.getUsername(), book.getUstatus()};
+//        int update = jdbcTemplate.update(sql, args);
+        System.out.println(intArray);
+    }
+
+
 }

@@ -22,8 +22,9 @@ public class TestJdbc {
 //        bookService.deleteBook(book.getUserId());
 //            bookService.selectCount();
 //        Book bookBack = bookService.selectBaObject("1");
-        List<Book> books = bookService.selectBaList();
-        System.out.println(books);
+//        List<Book> books = bookService.selectBaList();
+//        System.out.println(books);
+//        List<Object[]> list = new L
     }
 
 

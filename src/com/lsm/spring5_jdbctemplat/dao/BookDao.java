@@ -16,4 +16,6 @@ public interface BookDao {
     Book selectBaObject(String userId);
 
     List<Book> selectBaList();
+
+    void batchInsertList(List<Object[]> objects);
 }

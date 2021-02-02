@@ -38,5 +38,9 @@ public class BookService  {
         return bookDao.selectBaList();
     }
 
+    public void  batchInsertList(List<Object[]> objects){
+        bookDao.batchInsertList(objects);
+    }
+
 
 }
