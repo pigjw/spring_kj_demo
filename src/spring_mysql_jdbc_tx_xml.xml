@@ -1,0 +1,56 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop.xsd
+       http://www.springframework.org/schema/tx
+       http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+    <!--开启组件扫描-->
+    <context:component-scan base-package="com.lsm.spring5_jdbc_tx"></context:component-scan>
+
+
+    <!--如果不使用外部引入文件 我们是这样做数据库连接池的-->
+    <bean id="druidDataSource" class="com.alibaba.druid.pool.DruidDataSource">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
+        <property name="url" value="jdbc:mysql://localhost:3306/db_spring"></property>
+        <property name="username" value="root"></property>
+        <property name="password" value="lsm12345"></property>
+    </bean>
+    <!--创建jdbcTemplate对象 并注入dataSource-->
+    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+        <!--注入dataSource -->
+        <property name="dataSource" ref="druidDataSource"></property>
+    </bean>
+
+    <!--创建事务管理器-->
+    <bean id="dataSourceTransactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <!--注入数据源 要说明对那个数据库做事务操作-->
+        <property name="dataSource" ref="druidDataSource"></property>
+    </bean>
+
+    <tx:advice id="txadvice">
+        <!--配置事务的这一套参数 -->
+        <tx:attributes>
+            <!--表示account开头的都添加上这个事务-->
+            <tx:method name="account*" isolation="DEFAULT"/>
+        </tx:attributes>
+    </tx:advice>
+
+    <!--配置切入点和切面-->
+    <aop:config>
+        <!--配置切入点-->
+        <aop:pointcut id="pt" expression="execution(* com.lsm.spring5_jdbc_tx.service.UserService.*(..))"/>
+        <!--配置切面-->
+        <aop:advisor advice-ref="txadvice" pointcut-ref="pt"></aop:advisor>
+    </aop:config>
+
+    //事务其实就是利用了aop的原理
+
+</beans>
