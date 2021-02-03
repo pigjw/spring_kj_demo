@@ -1,6 +1,7 @@
 package com.lsm.spring5_aop;
 
 import org.junit.Test;
+import org.springframework.lang.Nullable;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
@@ -10,7 +11,7 @@ import java.lang.reflect.Proxy;
 public class PersonProxy implements InvocationHandler{
     private PersonA personA;
 
-    public PersonProxy(PersonA personA) {
+    public PersonProxy(@Nullable PersonA personA) {
         System.out.println("传进来的参数");
         this.personA = personA;
     }
